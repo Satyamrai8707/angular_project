@@ -1,0 +1,66 @@
+<form [formGroup]="userForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" formControlName="firstName">
+    <div *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched" class="error">
+      <span *ngIf="userForm.get('firstName')?.errors?.['required']">First name is required</span>
+      <span *ngIf="userForm.get('firstName')?.errors?.['minlength']">Minimum 3 characters required</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" formControlName="lastName">
+    <div *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched" class="error">
+      <span *ngIf="userForm.get('lastName')?.errors?.['required']">Last name is required</span>
+      <span *ngIf="userForm.get('lastName')?.errors?.['minlength']">Minimum 3 characters required</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Gender</label>
+    <select formControlName="gender">
+      <option value="">Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <div *ngIf="userForm.get('gender')?.invalid && userForm.get('gender')?.touched" class="error">
+      Gender is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error">
+      <span *ngIf="userForm.get('email')?.errors?.['required']">Email is required</span>
+      <span *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" formControlName="phone" placeholder="+[country code]-[number]">
+    <div *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.touched" class="error">
+      <span *ngIf="userForm.get('phone')?.errors?.['required']">Phone is required</span>
+      <span *ngIf="userForm.get('phone')?.errors?.['pattern']">Format: +[country code]-[10 digit number]</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="profileImage">Profile Image</label>
+    <input type="file" id="profileImage" (change)="onFileChange($event)" accept="image/jpeg, image/png">
+    <div *ngIf="imageError" class="error">{{ imageError }}</div>
+    <div *ngIf="profileImage">
+      Selected: {{ profileImage.name }} ({{ (profileImage.size / 1024).toFixed(2) }} KB)
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Submitting...' : 'Submit' }}
+    </button>
+    <button type="button" (click)="onCancel()">Cancel</button>
+  </div>
+</form>

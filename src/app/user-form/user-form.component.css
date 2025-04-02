@@ -1,0 +1,151 @@
+/* Form Container Styles */
+form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 0.95rem;
+}
+
+/* Input Field Styles */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f8fafc;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4fc3f7;
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.2);
+  background-color: #ffffff;
+}
+
+/* File Input Customization */
+.form-group input[type="file"] {
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px dashed #cbd5e0;
+}
+
+.form-group input[type="file"]:focus {
+  border-style: solid;
+}
+
+/* Selected File Info */
+.form-group div[ngIf="profileImage"] {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #4a5568;
+  padding: 0.5rem;
+  background: #f0f4f8;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Error Message Styles */
+.error {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.error span {
+  display: block;
+}
+
+/* Form Action Buttons */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: flex-end;
+}
+
+.form-actions button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.form-actions button[type="submit"] {
+  background: linear-gradient(135deg, #3a4a6b 0%, #1e2b4d 100%);
+  color: white;
+}
+
+.form-actions button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(58, 74, 107, 0.3);
+}
+
+.form-actions button[type="submit"]:disabled {
+  background: #cbd5e0;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.form-actions button[type="button"] {
+  background: #ffffff;
+  color: #3a4a6b;
+  border: 1px solid #e2e8f0;
+}
+
+.form-actions button[type="button"]:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  form {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+/* Animation for Invalid Fields */
+.ng-invalid.ng-touched {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}

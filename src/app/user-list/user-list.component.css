@@ -1,0 +1,165 @@
+/* user-list.component.css */
+.user-list-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search-container {
+  margin-bottom: 2rem;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.no-users {
+  padding: 2rem;
+  text-align: center;
+  color: #718096;
+  font-size: 1.1rem;
+}
+
+.no-users a {
+  color: #4299e1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.no-users a:hover {
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+th {
+  background-color: #f8fafc;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #2d3748;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #edf2f7;
+  vertical-align: middle;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.pagination-controls button {
+  padding: 0.5rem 1rem;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.pagination-controls button:hover {
+  background-color: #3182ce;
+}
+
+.pagination-controls button:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+}
+
+.pagination-controls span {
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.add-user-btn {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #4299e1;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background-color: #3182ce;
+  transform: translateY(-1px);
+}
+
+.delete-btn {
+  padding: 0.5rem 1rem;
+  background-color: #f56565;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #e53e3e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .user-list-container {
+    padding: 1rem;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+  }
+  
+  .profile-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .pagination-controls {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

@@ -1,0 +1,54 @@
+<div class="user-list-container">
+  <h2>User List</h2>
+  
+  <div class="search-container">
+    <input 
+      type="text" 
+      [(ngModel)]="searchTerm" 
+      (input)="filterUsers()"
+      placeholder="Search users..."
+    >
+  </div>
+
+  <div *ngIf="users.length === 0" class="no-users">
+    No users found. <a routerLink="/adduser">Add a new user</a>.
+  </div>
+
+  <div *ngIf="users.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of paginatedUsers">
+          <td>
+            <img *ngIf="user.profileImage" 
+                 [src]="user.profileImage" 
+                 alt="Profile image"
+                 class="profile-image">
+            <span *ngIf="!user.profileImage">No image</span>
+          </td>
+          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.gender | titlecase }}</td>
+         
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination-controls">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+
+
+</div>
