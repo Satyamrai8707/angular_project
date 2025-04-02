@@ -1,59 +1,86 @@
-# UserManagement
+User Registration Form with Image Upload
+This is an Angular-based project that allows users to submit a registration form along with their profile image. The image is uploaded to an external API and then stored along with the user's data. The project includes form validation, file validation (image size and type), and integration with an external API.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+Features
+User registration with fields: First Name, Last Name, Gender, Email, Phone, and Profile Image.
 
-## Development server
+Form validation for required fields and patterns.
 
-To start a local development server, run:
+Image upload with file size and type validation.
 
-```bash
+CORS handling with Heroku proxy.
+
+Displaying success or failure messages based on the form submission outcome.
+
+Technologies Used
+Angular: Frontend framework for building the application.
+
+Reactive Forms: Used for building and validating the form.
+
+HttpClient: For making HTTP requests to external APIs.
+
+Heroku CORS Proxy: To bypass CORS restrictions while uploading the image.
+
+Setup Instructions
+Prerequisites
+Node.js (v14 or higher)
+
+Angular CLI (v12 or higher)
+
+Steps to Run the Project
+Clone this repository to your local machine:
+
+
+git clone https://github.com/your-username/user-registration-form.git
+Navigate to the project directory:
+
+
+cd user-registration-form
+Install the required dependencies:
+
+
+npm install
+Start the Angular development server:
+
+
 ng serve
-```
+Open your browser and go to http://localhost:4200/ to view the application.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+API Details
+Image Upload API:
+Endpoint: POST https://dummyapi.com/upload
+Description: Uploads the profile image.
 
-## Code scaffolding
+User Registration API:
+Endpoint: POST https://dummyapi.com/users
+Description: Registers the user with their details and image URL.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Note: The app uses the Heroku proxy to bypass CORS issues for the API calls.
 
-```bash
-ng generate component component-name
-```
+Form Validation
+First Name: Required, minimum length of 3 characters.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Last Name: Required, minimum length of 3 characters.
 
-```bash
-ng generate --help
-```
+Gender: Required.
 
-## Building
+Email: Required, must be a valid email format.
 
-To build the project run:
+Phone: Required, must follow the pattern +<country-code>-<10-digit-phone-number>.
 
-```bash
-ng build
-```
+Profile Image: Required, file size should be less than 2MB, and only JPG or PNG images are allowed.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Contributing
+Fork the repository.
 
-## Running unit tests
+Create a new branch (git checkout -b feature-name).
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Commit your changes (git commit -am 'Add new feature').
 
-```bash
-ng test
-```
+Push the branch (git push origin feature-name).
 
-## Running end-to-end tests
+Create a pull request.
 
-For end-to-end (e2e) testing, run:
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
